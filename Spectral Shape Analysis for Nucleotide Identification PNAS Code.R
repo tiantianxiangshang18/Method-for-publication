@@ -60,7 +60,7 @@ analyzeFeatSelResult(SBFS_SVM_result)
 SBFS_KNN_result = SBFS(dataset = trainingSet, algorithm = makeLearner('classif.kknn', k=3))
 analyzeFeatSelResult(SBFS_KNN_result)
 
-#Sequential Forward Floating Selection (SBFS)
+#Sequential Forward Floating Selection (SFFS)
 SFFS <- function(dataset, algorithm){
   classif.task = makeClassifTask(data = dataset, target = "Name")
   ctrl = makeFeatSelControlSequential(method = "sffs", max.features = 5)
