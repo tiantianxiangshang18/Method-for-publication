@@ -30,7 +30,7 @@ count_accuracy <- function(result,data_test){
   print(count_correct/n)  
 }  
 #Read dataset and data split
-trainingSetnormal<-read.csv("C:/Users/Yun/OneDrive/Schanze group one drive/18.9.30 paper writing/paper writing/origin data/fluorescence/18.6.7 final/all normal.csv", header=TRUE)
+trainingSetnormal<-read.csv("File Path", header=TRUE) # add file path
 index<-createDataPartition(trainingSetnormal$Name, time=1, p=0.625, list=F)
 trainingSet<-trainingSetnormal[index, ]
 testSet <-trainingSetnormal[-index, ]
