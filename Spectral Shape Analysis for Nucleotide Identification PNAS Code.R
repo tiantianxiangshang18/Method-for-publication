@@ -101,19 +101,19 @@ p
 #KNN
 trainingSet<-trainTransformed[index, ]
 testSet <-trainTransformed[-index, ]
-trainingSet<-trainingSet[,c('Name',SFFS_SVM_result$x)]
-testSet <-testSet[,c('Name',SFFS_SVM_result$x)]
+trainingSet<-trainingSet[,c('Name',SFFS_KNN_result$x)]
+testSet <-testSet[,c('Name',SFFS_KNN_result$x)]
 data.fit <- knn3(factor(Name) ~ ., trainingSet, k = 3)
 data.fit
-ions.ldapredict=predict(data.fit,testSet[,-1],type = "class")
-ions.ldapredict
-table(testSet$Name,ions.ldapredict)
-count_accuracy(ions.ldapredict,testSet)
+ions.knnpredict=predict(data.fit,testSet[,-1],type = "class")
+ions.knnpredict
+table(testSet$Name,ions.knnpredict)
+count_accuracy(ions.knnpredict,testSet)
 #SVM
 trainingSet<-trainTransformed[index, ]
 testSet <-trainTransformed[-index, ]
-trainingSet<-trainingSet[,c('Name',SFFS_KNN_result$x)]
-testSet <-testSet[,c('Name',SFFS_KNN_result$x)]
+trainingSet<-trainingSet[,c('Name',SFFS_SVM_result$x)]
+testSet <-testSet[,c('Name',SFFS_SVM_result$x)]
 ions.svm=svm(Name ~ .,data=trainingSet, kernel="linear")
 summary(ions.svm)
 ions.svmpredict=predict(ions.svm, testSet[,-1],decision.values=T)
