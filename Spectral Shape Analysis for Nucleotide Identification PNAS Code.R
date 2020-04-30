@@ -146,7 +146,7 @@ for(i in 1:30){
   testSet <-trainTransformed[-index, c('Name', SFFS_SVM_result$x)]
   ions.svm=svm(Name ~ .,data=trainingSet, kernel="linear")
   ions.svmpredict=predict(ions.svm,testSet[,-1],decision.values=T)
-  Accuracysvm = count_accuracy(ions.ldapredict$class,testSet)
+  Accuracysvm = count_accuracy(ions.svmpredict$class,testSet)
   accuracysvmall = accuracysvmall+Accuracysvm
 }
 accuracyldaall/30
